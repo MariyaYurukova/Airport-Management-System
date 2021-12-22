@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="~{fragments/head}"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <th:block th:include="~{fragments/navbar}"></th:block>
+    </header>
+    <main>
+        <div class="container">
+            <table border="3" class="table table-dark  w-100" style="margin-top: 100px">
+                <thead>
+                <tr>
+                    <th>
+                        <a>Departure date</a>
+                    </th>
+                    <th>
+                        <a>Departure time </a>
+                    </th>
+                    <th>
+                        <a>about travel </a>
+                    </th>
+                    <th>
+                        <a>Plane </a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="a : ${flight}">
+                    <td th:text="${a.departure}"></td>
+                    <td th:text="${a.departureTime}"></td>
+                    <td th:text="${a.travel.fromAirport.name} +';  - '+ ${a.travel.toAirport.name}+';  travel time-> '+${a.travel.travelTime} + ';   price-> '+${a.travel.price} +
+                                ';  gate  '+ ${a.travel.gate}  "></td>
+                    <td th:text="${a.plane.codeName}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div th:if="${totalPages > 1}">
+                <div class="row col-sm-10">
+                    <div class="col-sm-2">
+                        Total Rows: [[${totalItems}]]
+                    </div>
+                    <div class="col-sm-2">
+            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+      <a th:if="${currentPage != i}" th:href="@{'/flight/all/page/' + ${i}}">[[${i}]]</a>
+      <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+            </span>
+                    </div>
+                    <div class="col-sm-2">
+                        <a th:if="${currentPage < totalPages}" th:href="@{'/flight/all/page/' + ${currentPage + 1}}">Next</a>
+                        <span th:unless="${currentPage < totalPages}">Next</span>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <a th:if="${currentPage < totalPages}" th:href="@{'/flight/all/page/' + ${totalPages}}">Last</a>
+                        <span th:unless="${currentPage < totalPages}">Last</span>
+                    </div>
+                </div>
+            </div>
+            <a th:href="@{/}" class="btn btn-success info" style="justify-content: center">Back</a>
+        </div>
+        </br>
+    </main>
+    <footer>
+        <div th:include="~{fragments/footer}"></div>
+    </footer>
+</div>
+</body>
+</html>
+
+
+

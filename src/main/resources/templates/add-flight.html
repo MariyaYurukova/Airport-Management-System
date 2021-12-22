@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="~{fragments/head}"></th:block>
+    <script>
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <th:block th:include="~{fragments/navbar}"></th:block>
+        <script type="text/javascript" src="/js/flight.js"></script>
+    </header>
+    <main>
+        <div class="container">
+            <form th:action="@{/flight/add}" method="post" th:object="${model}">
+                <div class="row ">
+                    <div class="form-group  mt-md-5 ">
+                        <label for="departure"> Departure date </label>
+                        <input type="date" class="form-control" id="departure" name="departure" th:field="*{departure}"
+                               required="yes"
+                        />
+                    </div>
+                    <div class="form-group  mt-md-5  col-2"
+                         th:classappend="${#fields.hasErrors('departureTime')}?'text-danger'">
+                        <label th:for="departureTime">select departure time </label>
+                        <select class="form-control col-xs-3" id="departureTime" name="departureTime"
+                                th:field="*{departureTime}" required="yes">
+                            <option value="" disabled selected hidden>time</option>
+                            <option th:value="${departureTime}"
+                                    th:each="departureTime : ${T(airportmanagement.system.domain.entities.Departure).values()}"
+                                    th:text="${departureTime}"></option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('departureTime')}" th:errors="*{departureTime}"></small>
+                    </div>
+                    <div class="form-group  mt-md-5  col-2"
+                         th:classappend="${#fields.hasErrors('airline')}?'text-danger'">
+                        <label th:for="airline">Airline </label>
+                        <select class="form-control col-xs-3" th:field="*{airline}" required="yes">
+                            <option value="" disabled selected hidden>time</option>
+                            <option th:each="a : ${airline}"
+                                    th:value="${a.id}" th:text="${a.name}"
+                            ></option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('airline')}" th:errors="*{airline}"></small>
+                    </div>
+                    <div class="form-group  mt-md-5  col-5"
+                         th:classappend="${#fields.hasErrors('travel')}?'text-danger'">
+                        <label th:for="travel">Travel from to </label>
+                        <select class="form-control col-xs-3" th:field="*{travel}" required="yes">
+                            <option value="" disabled selected hidden>from to</option>
+                            <option th:each="a : ${travel} "
+                                    th:value="${a.id}" th:text="${a.fromAirport.name} +';  - '+ ${a.toAirport.name}+';  travel time-> '+${a.travelTime} + ';   price-> '+${a.price} +
+                                ';  gate  '+ ${a.gate}  "
+
+                            ></option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('travel')}" th:errors="*{travel}"></small>
+                    </div>
+                </div>
+                <div class="row  ">
+                    <div class="form-group  mt-md-5  col-2"
+                         th:classappend="${#fields.hasErrors('plane')}?'text-danger'">
+                        <label th:for="plane">Plane </label>
+                        <select class="form-control col-xs-3" th:field="*{plane}" required="yes">
+                            <option value="" disabled selected hidden>time</option>
+                            <option th:each="p : ${plane}"
+                                    th:value="${p.id}" th:text="${p.codeName}"
+                            ></option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('plane')}" th:errors="*{plane}"></small>
+                    </div>
+                    <div class="form-group mt-md-7 m-sm-5">
+                        <label for="name">Name </label>
+                        <input class="form-control" id="name" name="name" th:field="*{name}" required="yes"/>
+                    </div>
+                    <div class="form-group mt-md-7 m-sm-5">
+                        <label for="age">Age </label>
+                        <input class="form-control" id="age" name="age" th:field="*{age}" required="yes"/>
+                    </div>
+                </div>
+                <div class="button-holder d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success col-2"> Save flight</button>
+                </div>
+            </form>
+
+            <a th:href="@{/}" class="btn btn-success info" style="justify-content: center">Back</a>
+        </div>
+        </br>
+    </main>
+    <footer>
+        <div th:include="~{fragments/footer}"></div>
+    </footer>
+</div>
+</body>
+</html>
+
+

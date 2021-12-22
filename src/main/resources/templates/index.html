@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="~{fragments/head}"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <th:block th:include="~{fragments/navbar}"></th:block>
+        <script type="text/javascript" src="/js/airline.js"></script>
+        <script type="text/javascript" src="/js/airport.js"></script>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <form id="airlineForm" style="margin-top: 20px">
+                    <div class="form-group  mt-3 col-12">
+                        <label class="font-italic rowColor bg-dark text-white">Add new airline in our system</label>
+                        <input type="text" class="form-control" id="name" placeholder="airline" name="name"
+                               required="yes">
+                    </div>
+                    <button type="submit" id="submit" value="reset" class="btn btn-success info "
+                            style="margin-left: 70px">Submit
+                    </button>
+
+                    <div id="postAirlineResultDiv" class="form-group mt-3">
+                    </div>
+                </form>
+                <form id="airportForm" style="margin-top: 20px">
+                    <div class="form-group mt-3 col-12 ">
+                        <label class="font-italic rowColor bg-dark text-white">Add new airport in our system</label>
+                        <input type="text" class="form-control" id="airport" placeholder="airport" name="name"
+                               required="yes">
+                    </div>
+                    <button type="submit" id="submit1" value="reset" class="btn btn-success info"
+                            style="margin-left: 70px">Submit
+                    </button>
+
+                    <div id="postAirportResultDiv" class="form-group mt-3">
+                    </div>
+                </form>
+            </div>
+            <label class="font-italic rowColor bg-dark text-white"> After save refresh system , please</label>
+            <a th:href="@{/}" class="btn btn-success info" style="justify-content: center">Refresh</a>
+            <div class="mt-3">
+                <label class="font-italic rowColor bg-dark text-white"> See all airlines in system</label>
+                <a th:href="@{/airline/all}" class="btn btn-success info" style="justify-content: center">AIRLINES</a>
+            </div>
+            <div class="mt-3">
+                <label class="font-italic rowColor bg-dark text-white"> See all airport in system</label>
+                <a th:href="@{/airport/all}" class="btn btn-success info" style="justify-content: center">AIRPORTS</a>
+            </div>
+            <div class="mt-3">
+                <label class="font-italic rowColor bg-dark text-white">Create travel</label>
+                <a th:href="@{/travel/add}" class="btn btn-success info" style="justify-content: center">Travel</a>
+            </div>
+            <div class="mt-3">
+                <label class="font-italic rowColor bg-dark text-white">All flight</label>
+                <a th:href="@{/flight/all}" class="btn btn-success info" style="justify-content: center">All FLIGHT</a>
+
+            </div>
+            <div class="mt-3">
+                <label class="font-italic rowColor bg-dark text-white">Create flight</label>
+                <a th:href="@{/flight/add}" class="btn btn-success info" style="justify-content: center">FLIGHT</a>
+            </div>
+        </div>
+        </br>
+    </main>
+    <footer>
+        <div th:include="~{fragments/footer}"></div>
+    </footer>
+</div>
+</body>
+</html>

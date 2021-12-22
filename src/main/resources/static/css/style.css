@@ -1,0 +1,40 @@
+hr.hr-2 {
+    height: 2px;
+}
+
+.logout-button {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+}
+
+.logout-button:focus {
+    outline: none;
+}
+
+/*img.img-thumbnail {*/
+/*    border: 1px solid #ddd; !* Gray border *!*/
+/*    border-radius: 4px; !* Rounded border *!*/
+/*    padding: 5px; !* Some padding *!*/
+/*    max-width: 40px;*/
+/*    max-height: 40px;*/
+/*}*/
+
+
+/*body {*/
+/*    background: url("https://www.freepik.com/free-vector/set-different-airplane_4119893.htm?query=plane") no-repeat center center fixed;*/
+/*    -webkit-background-size: cover;*/
+/*    -moz-background-size: cover;*/
+/*    -o-background-size: cover;*/
+/*    background-size: cover;*/
+/*}*/
+
+.info{
+    border-color: black;
+
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="~{fragments/head}"></th:block>
+    <script>
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <th:block th:include="~{fragments/navbar}"></th:block>
+        <script type="text/javascript" src="/js/flight.js"></script>
+    </header>
+    <main>
+        <div class="container">
+            <form th:action="@{/travel/add}" method="post" th:object="${model}">
+                <div class="row ">
+                    <div class="form-group  mt-md-5 m-sm-5 ">
+                        <label for="from">Airport departure</label>
+                        <select class="form-group  w-100" id="from" th:field="*{fromAirport}" required="yes">
+                            <option th:each="a : ${airport}" th:value="${a.id}" th:text="${a.name}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group   mt-md-5 m-sm-5">
+                        <label for="to">Airport arrival</label>
+                        <select class="form-group w-100 " id="to" name="to" th:field="*{toAirport}" required="yes">
+                            <option th:each="a : ${airport}" th:value="${a.id}" th:text="${a.name}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-md-5 m-sm-5">
+                        <label for="price">Price</label>
+                        <input class="form-control" id="price" name="price" th:value="*{price}" required="yes"/>
+                    </div>
+                </div>
+                <div class="row  ">
+                    <div class="form-group mt-md-5 m-sm-5">
+                        <label for="travelTime">Flight time </label>
+                        <input class="form-control" id="travelTime" name="travelTime" th:value="*{travelTime}"
+                               required="yes"/>
+                    </div>
+
+                    <div class="form-group  mt-md-5  col-2" th:classappend="${#fields.hasErrors('gate')}?'text-danger'">
+                        <label th:for="gate">GATE </label>
+                        <select class="form-control col-xs-3" id="gate" name="gate" required="yes">
+                            <option value="" disabled selected hidden>gate</option>
+                            <option th:value="${gate}"
+                                    th:each="gate : ${T(airportmanagement.system.domain.entities.Gate).values()}"
+                                    th:text="${gate}"></option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('gate')}" th:errors="*{gate}"></small>
+                    </div>
+                </div>
+                <div class="button-holder d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success col-2"> Save travel</button>
+                </div>
+            </form>
+            <a th:href="@{/}" class="btn btn-success info" style="justify-content: center">Back</a>
+        </div>
+        </br>
+    </main>
+    <footer>
+        <div th:include="~{fragments/footer}"></div>
+    </footer>
+</div>
+</body>
+</html>
+
+
