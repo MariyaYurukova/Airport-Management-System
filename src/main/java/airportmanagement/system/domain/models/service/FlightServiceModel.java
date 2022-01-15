@@ -16,19 +16,25 @@ public class FlightServiceModel {
     private String id;
     private LocalDate departure;
     private Departure departureTime;
-    private Travel  travel;
+    private Travel travel;
     private Airline airline;
-    private String name;
-    private Integer age;
     private Plane plane;
-
-
-   // private Passenger passenger;
-
+    private Set<Passenger> passenger;
+    private Integer numberOfSeats;
+    private String ticketNumber;
+    private Integer  freePlaces;
+    private Integer occupied;
 
     public FlightServiceModel() {
     }
 
+    public Integer getOccupied() {
+        return occupied;
+    }
+
+    public void setOccupied(Integer occupied) {
+        this.occupied = occupied;
+    }
 
     public Travel getTravel() {
         return travel;
@@ -42,6 +48,13 @@ public class FlightServiceModel {
         this.id = id;
     }
 
+    public Integer getFreePlaces() {
+        return freePlaces;
+    }
+
+    public void setFreePlaces(Integer freePlaces) {
+        this.freePlaces = freePlaces;
+    }
 
     public LocalDate getDeparture() {
         return departure;
@@ -59,19 +72,25 @@ public class FlightServiceModel {
         this.departureTime = departureTime;
     }
 
+    public Integer getNumberOfSeats() {
+        return numberOfSeats;
+    }
 
+    public void setNumberOfSeats(Integer numberOfSeats) {
+        this.numberOfSeats = numberOfSeats;
+    }
 
     public void setTravel(Travel travel) {
         this.travel = travel;
     }
 
-//    public Passenger getPassenger() {
-//        return passenger;
-//    }
-//
-//    public void setPassenger(Passenger passenger) {
-//        this.passenger = passenger;
-//    }
+    public Set<Passenger> getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Set<Passenger> passenger) {
+        this.passenger = passenger;
+    }
 
     public Airline getAirline() {
         return airline;
@@ -81,21 +100,6 @@ public class FlightServiceModel {
         this.airline = airline;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 
     public Plane getPlane() {
         return plane;
@@ -103,5 +107,14 @@ public class FlightServiceModel {
 
     public void setPlane(Plane plane) {
         this.plane = plane;
+    }
+
+    public String getTicketNumber() {
+
+        return ticketNumber;
+    }
+
+    public void setTicketNumber(String ticketNumber) {
+        this.ticketNumber = ticketNumber;
     }
 }

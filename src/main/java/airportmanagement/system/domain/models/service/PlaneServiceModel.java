@@ -12,6 +12,17 @@ public class PlaneServiceModel {
     private String codeName;
     private Integer numberOfSeats;
     private List<Flight> flight;
+    private String  captain;
+    private String  coPilot;
+
+    private Integer countStewardesses ;
+    private String flightAttendantOne;
+    private String flightAttendantTwo;
+    private String flightAttendantThree;
+    private String flightAttendantFour;
+    private String flightAttendantFive;
+    private String flightAttendantSix;
+    private String flightAttendantSeven;
 
 
 
@@ -51,5 +62,84 @@ public class PlaneServiceModel {
     }
 
 
+    public String getCaptain() {
+        return captain;
+    }
 
+    public void setCaptain(String captain) {
+        this.captain = captain;
+    }
+
+    public String getCoPilot() {
+        return coPilot;
+    }
+
+    public void setCoPilot(String coPilot) {
+        this.coPilot = coPilot;
+    }
+
+
+    public Integer getCountStewardesses() {
+        return countStewardesses;
+    }
+
+    public void setCountStewardesses(Integer countStewardesses) {
+        this.countStewardesses = countStewardesses;
+    }
+
+    public String getFlightAttendantOne() {
+        return flightAttendantOne;
+    }
+
+    public void setFlightAttendantOne(String flightAttendantOne) {
+        this.flightAttendantOne = flightAttendantOne;
+    }
+
+    public String getFlightAttendantTwo() {
+        return flightAttendantTwo;
+    }
+
+    public void setFlightAttendantTwo(String flightAttendantTwo) {
+        this.flightAttendantTwo = flightAttendantTwo;
+    }
+
+    public String getFlightAttendantThree() {
+        return flightAttendantThree;
+    }
+
+    public void setFlightAttendantThree(String flightAttendantThree) {
+        this.flightAttendantThree = flightAttendantThree;
+    }
+
+    public String getFlightAttendantFour() {
+        return flightAttendantFour;
+    }
+
+    public void setFlightAttendantFour(String flightAttendantFour) {
+        this.flightAttendantFour = flightAttendantFour;
+    }
+
+    public String getFlightAttendantFive() {
+        return flightAttendantFive;
+    }
+
+    public void setFlightAttendantFive(String flightAttendantFive) {
+        this.flightAttendantFive = flightAttendantFive;
+    }
+
+    public String getFlightAttendantSix() {
+        return flightAttendantSix;
+    }
+
+    public void setFlightAttendantSix(String flightAttendantSix) {
+        this.flightAttendantSix = flightAttendantSix;
+    }
+
+    public String getFlightAttendantSeven() {
+        return flightAttendantSeven;
+    }
+
+    public void setFlightAttendantSeven(String flightAttendantSeven) {
+        this.flightAttendantSeven = flightAttendantSeven;
+    }
 }

@@ -1,8 +1,8 @@
 package airportmanagement.system.domain.models.views;
 
 import airportmanagement.system.domain.entities.Airport;
-import airportmanagement.system.domain.entities.Flight;
-import airportmanagement.system.domain.entities.Gate;
+import airportmanagement.system.domain.entities.GateArriving;
+import airportmanagement.system.domain.entities.GateDeparture;
 
 import java.math.BigDecimal;
 
@@ -13,8 +13,8 @@ public class TravelViewModel {
     private Airport toAirport;
     private BigDecimal travelTime;
     private BigDecimal price;
-    private Gate gate;
-
+    private GateDeparture gate;
+    private GateArriving gateArriving;
 
     public TravelViewModel() {
     }
@@ -60,11 +60,20 @@ public class TravelViewModel {
         this.price = price;
     }
 
-    public Gate getGate() {
+    public GateDeparture getGate() {
         return gate;
     }
 
-    public void setGate(Gate gate) {
+    public void setGate(GateDeparture gate) {
         this.gate = gate;
+    }
+
+
+    public GateArriving getGateArriving() {
+        return gateArriving;
+    }
+
+    public void setGateArriving(GateArriving gateArriving) {
+        this.gateArriving = gateArriving;
     }
 }

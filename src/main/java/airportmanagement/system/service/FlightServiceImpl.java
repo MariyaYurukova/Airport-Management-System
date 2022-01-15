@@ -1,9 +1,7 @@
 package airportmanagement.system.service;
 
-import airportmanagement.system.domain.entities.Airport;
 import airportmanagement.system.domain.entities.Flight;
 import airportmanagement.system.domain.models.service.FlightServiceModel;
-import airportmanagement.system.domain.models.service.TravelServiceModel;
 import airportmanagement.system.repository.FlightRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,7 +29,10 @@ public class FlightServiceImpl implements FlightService {
 
 
     @Override
-    public FlightServiceModel addFlight(FlightServiceModel flightServiceModel) {
+    public FlightServiceModel addFlight(FlightServiceModel flightServiceModel)  {
+
+
+
         Flight flight= this.modelMapper.map(flightServiceModel, Flight.class);
         return  modelMapper.map(this.flightRepository.saveAndFlush(flight), FlightServiceModel.class);
     }
@@ -52,5 +52,18 @@ public class FlightServiceImpl implements FlightService {
         Pageable pageable = PageRequest.of(pageNo - 1, 7);
         return this.flightRepository.findAll(pageable);
     }
+
+    @Override
+    public int countPassenger(String id) {
+        int flight = this.flightRepository.countPlaneId(id);
+        return flight;
+    }
+
+//    @Override
+//    public String findTicket(String tickedNumber) {
+//        Flight flight = this.flightRepository.findTicket(tickedNumber);
+//         return    ("Ticket number exist!");
+//        }
+//
 
 }

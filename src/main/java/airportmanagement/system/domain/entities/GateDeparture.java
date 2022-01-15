@@ -1,6 +1,6 @@
 package airportmanagement.system.domain.entities;
 
-public enum Gate {
+public enum GateDeparture {
 
     A1,
     A2,

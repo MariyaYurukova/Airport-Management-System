@@ -1,9 +1,6 @@
 package airportmanagement.system.domain.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -17,9 +14,12 @@ public class Travel extends BaseEntity {
     private Airport toAirport;
     private BigDecimal travelTime;
     private BigDecimal price;
-    private Gate gate;
+    private GateDeparture gate;
+    private GateArriving  gateArriving;
     private List<Flight> flight;
 
+
+    private Distance distance;
 
 
     public Travel() {
@@ -36,7 +36,15 @@ public class Travel extends BaseEntity {
         this.fromAirport = fromAirport;
     }
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "distance")
+    public Distance getDistance() {
+        return distance;
+    }
 
+    public void setDistance(Distance distance) {
+        this.distance = distance;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "airport_id_to", referencedColumnName = "id")
@@ -70,16 +78,24 @@ public class Travel extends BaseEntity {
 
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "gate")
-    public Gate getGate() {
+    @Column(name = "gate_departure")
+    public GateDeparture getGate() {
         return gate;
     }
 
-    public void setGate(Gate gate) {
+    public void setGate(GateDeparture gate) {
         this.gate = gate;
     }
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gate_arriving")
+    public GateArriving getGateArriving() {
+        return gateArriving;
+    }
 
+    public void setGateArriving(GateArriving gateArriving) {
+        this.gateArriving = gateArriving;
+    }
 
     @OneToMany(
             fetch = FetchType.LAZY, mappedBy = "travel"

@@ -9,12 +9,13 @@
         <th:block th:include="~{fragments/navbar}"></th:block>
         <script type="text/javascript" src="/js/airline.js"></script>
         <script type="text/javascript" src="/js/airport.js"></script>
+        <script type="text/javascript" src="/js/plane.js"></script>
     </header>
     <main>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <form id="airlineForm" style="margin-top: 20px">
-                    <div class="form-group  mt-3 col-12">
+                    <div class="form-group  mt-2 col-12">
                         <label class="font-italic rowColor bg-dark text-white">Add new airline in our system</label>
                         <input type="text" class="form-control" id="name" placeholder="airline" name="name"
                                required="yes">
@@ -27,7 +28,7 @@
                     </div>
                 </form>
                 <form id="airportForm" style="margin-top: 20px">
-                    <div class="form-group mt-3 col-12 ">
+                    <div class="form-group mt-2 col-12 ">
                         <label class="font-italic rowColor bg-dark text-white">Add new airport in our system</label>
                         <input type="text" class="form-control" id="airport" placeholder="airport" name="name"
                                required="yes">
@@ -37,6 +38,88 @@
                     </button>
 
                     <div id="postAirportResultDiv" class="form-group mt-3">
+                    </div>
+                </form>
+                <h-2/>
+                <form id="planeForm" style="margin-top: 20px">
+                    <p class="font-italic rowColor bg-dark text-white">Add plane</p>
+                    <div class="row">
+                        <div class="form-group mt-2 col-3">
+                            <label class="font-italic rowColor bg-dark text-white">Add new plane in our system -> code
+                                name</label>
+                            <input class="form-control " id="code" placeholder="3 capital letters 2 numbers(example MKA78)" name="code"
+                                   required="yes">
+                        </div>
+                        <div class="form-group mt-2 col-4 ">
+                            <label class="font-italic rowColor bg-dark text-white">captain</label>
+                            <input class="form-control" id="captain" placeholder="captain" name="captain"
+                                   required="yes">
+                        </div>
+                        <div class="form-group mt-2 col-4" style="margin-right: 5px">
+                            <label class="font-italic rowColor bg-dark text-white">Co-pilot</label>
+                            <input class="form-control" id="pilot" placeholder="co-pilot" name="pilot"
+                                   required="yes">
+                        </div>
+                        <div class="form-group mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Count stewardesses</label>
+                            <select class="form-control col-xs-3" name="count" id="count">
+                                <option value='' SELECTED>--count stewardesses--</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                                <option value='6'>6</option>
+                                <option value='7'>7</option>
+                            </SELECT>
+                            </select>
+                        </div>
+                        <div class="form-group mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Number of seats at plane</label>
+                            <input class="form-control" id="seats" placeholder="seats" name="seats"
+                                   required="yes">
+                        </div>
+                        <div class="form-group mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Flight attendant</label>
+                            <input class="form-control" id="one" placeholder="first" name="one"
+                                   required="yes">
+                        </div>
+
+                        <div class="form-group  mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Flight attendant</label>
+                            <input class="form-control" id="two" placeholder="second" name="two"
+                                   required="yes">
+                        </div>
+                        <div class="form-group  mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Flight attendant</label>
+                            <input class="form-control" id="three" placeholder="third" name="three"
+                                   required="yes">
+                        </div>
+                        <div class="form-group  mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Flight attendant</label>
+                            <input class="form-control" id="four" placeholder="fourth" name="four"
+                                   required="yes">
+                        </div>
+                        <div class="form-group  mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Flight attendant</label>
+                            <input class="form-control" id="five" placeholder="fifth" name="five"
+                            >
+                        </div>
+                        <div class="form-group  mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Flight attendant</label>
+                            <input class="form-control" id="six" placeholder="sixth" name="six"
+                            >
+                        </div>
+                        <div class="form-group  mt-2 col-3 ">
+                            <label class="font-italic rowColor bg-dark text-white">Flight attendant</label>
+                            <input class="form-control" id="seven" placeholder="seventh" name="seven"
+                            >
+                        </div>
+                    </div>
+                    <button type="submit" id="submit3" value="reset" class="btn btn-success info"
+                            style="margin-left: 70px">Submit
+                    </button>
+                    <div id="postPlaneResultDiv" class="form-group mt-3 ">
                     </div>
                 </form>
             </div>
@@ -57,7 +140,6 @@
             <div class="mt-3">
                 <label class="font-italic rowColor bg-dark text-white">All flight</label>
                 <a th:href="@{/flight/all}" class="btn btn-success info" style="justify-content: center">All FLIGHT</a>
-
             </div>
             <div class="mt-3">
                 <label class="font-italic rowColor bg-dark text-white">Create flight</label>

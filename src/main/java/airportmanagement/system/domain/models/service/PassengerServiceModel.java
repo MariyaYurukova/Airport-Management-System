@@ -3,12 +3,17 @@ package airportmanagement.system.domain.models.service;
 import airportmanagement.system.domain.entities.Flight;
 
 import java.util.List;
+import java.util.Set;
 
 public class PassengerServiceModel {
 
     private String id;
     private String name;
     private Integer age;
+  //  private Flight flight;
+      private String flight;
+
+    private String ticketNumber;
 
     public PassengerServiceModel() {
     }
@@ -37,5 +42,19 @@ public class PassengerServiceModel {
         this.age = age;
     }
 
+    public String getFlight() {
+        return flight;
+    }
 
+    public void setFlight(String flight) {
+        this.flight = flight;
+    }
+
+    public String getTicketNumber() {
+        return ticketNumber;
+    }
+
+    public void setTicketNumber(String ticketNumber) {
+        this.ticketNumber = ticketNumber;
+    }
 }

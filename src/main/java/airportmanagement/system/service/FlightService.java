@@ -8,9 +8,14 @@ import java.util.List;
 
 public interface FlightService {
 
-    FlightServiceModel addFlight(FlightServiceModel flightServiceModel);
+    FlightServiceModel addFlight(FlightServiceModel flightServiceModel) throws Exception;
 
     List<FlightServiceModel> findAllFlight();
 
     Page<Flight> findPaginated(int pageNo, int pageSize);
+
+    int countPassenger(String id);
+
+
+  // String findTicket(String tickedNumber);
 }

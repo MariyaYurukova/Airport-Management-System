@@ -1,8 +1,9 @@
 package airportmanagement.system.domain.models.service;
 
 import airportmanagement.system.domain.entities.Airport;
-import airportmanagement.system.domain.entities.Flight;
-import airportmanagement.system.domain.entities.Gate;
+import airportmanagement.system.domain.entities.Distance;
+import airportmanagement.system.domain.entities.GateArriving;
+import airportmanagement.system.domain.entities.GateDeparture;
 
 import java.math.BigDecimal;
 
@@ -15,8 +16,10 @@ public class TravelServiceModel {
     private Airport toAirport;
     private BigDecimal travelTime;
     private BigDecimal price;
-    private Gate gate;
+    private GateDeparture gate;
+    private GateArriving gateArriving;
   //  private Flight flight;
+  private Distance distance;
 
 
     public TravelServiceModel() {
@@ -62,11 +65,11 @@ public class TravelServiceModel {
         this.price = price;
     }
 
-    public Gate getGate() {
+    public GateDeparture getGate() {
         return gate;
     }
 
-    public void setGate(Gate gate) {
+    public void setGate(GateDeparture gate) {
         this.gate = gate;
     }
 
@@ -77,4 +80,22 @@ public class TravelServiceModel {
 //    public void setFlight(Flight flight) {
 //        this.flight = flight;
 //    }
+
+
+    public GateArriving getGateArriving() {
+        return gateArriving;
+    }
+
+    public void setGateArriving(GateArriving gateArriving) {
+        this.gateArriving = gateArriving;
+    }
+
+
+    public Distance getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Distance distance) {
+        this.distance = distance;
+    }
 }

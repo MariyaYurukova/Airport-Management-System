@@ -1,5 +1,7 @@
 package airportmanagement.system.service;
 
+import airportmanagement.system.domain.entities.Airport;
+import airportmanagement.system.domain.entities.Plane;
 import airportmanagement.system.domain.models.service.AirportServiceModel;
 import airportmanagement.system.domain.models.service.PlaneServiceModel;
 import airportmanagement.system.repository.PlaneRepository;
@@ -33,4 +35,29 @@ public class PlaneServiceImpl  implements PlaneService{
                 .collect(Collectors.toList());
 
     }
+
+
+    @Override
+    public PlaneServiceModel addPlane(PlaneServiceModel planeServiceModel) {
+       Plane plane= this.modelMapper.map(planeServiceModel, Plane.class);
+        return this.modelMapper.map(this.planeRepository.saveAndFlush(plane), PlaneServiceModel.class);
+
+    }
+
+    @Override
+    public PlaneServiceModel findPlaneById(String id){
+
+        Plane plane = this.planeRepository.findById(id).get();
+        return this.modelMapper.map ( plane,PlaneServiceModel.class);
+    }
+
+
+        @Override
+        public int countPassenger(String id) {
+            int flight = this.planeRepository.countPlaneId(id);
+            return flight;
+
+    }
+
+
 }

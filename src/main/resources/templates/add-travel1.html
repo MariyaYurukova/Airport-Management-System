@@ -14,7 +14,7 @@
     <main>
         <div class="container">
             <form th:action="@{/travel/add}" method="post" th:object="${model}">
-                <h5 style="color: #b21f2d; margin-top: 100px"> Tray again</h5>
+                <h5 style="color: #b21f2d; margin-top: 100px"> Try again</h5>
                 <a th:href="@{/}" class="btn btn-success info" style="justify-content: center">Refresh the system</a>
                 <div class="row ">
                     <div class="form-group  mt-md-5 m-sm-5 ">
@@ -46,7 +46,7 @@
                         <select class="form-control col-xs-3" id="gate" name="gate" required="yes">
                             <option value="" disabled selected hidden>gate</option>
                             <option th:value="${gate}"
-                                    th:each="gate : ${T(airportmanagement.system.domain.entities.Gate).values()}"
+                                    th:each="gate : ${T(airportmanagement.system.domain.entities.GateDeparture).values()}"
                                     th:text="${gate}"></option>
                         </select>
                         <small th:if="${#fields.hasErrors('gate')}" th:errors="*{gate}"></small>

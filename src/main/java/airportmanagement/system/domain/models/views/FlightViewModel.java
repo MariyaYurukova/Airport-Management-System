@@ -12,17 +12,26 @@ public class FlightViewModel {
     private String id;
     private LocalDate departure;
     private Departure departureTime;
-
     private Integer terminal;
     private Travel travel;
     private Airline airline;
     private Plane plane;
+
+    private Integer occupied;
+
 
     private Passenger passenger;
 
     public FlightViewModel() {
     }
 
+    public Integer getOccupied() {
+        return occupied;
+    }
+
+    public void setOccupied(Integer occupied) {
+        this.occupied = occupied;
+    }
 
     public String getId() {
         return id;
